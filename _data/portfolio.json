@@ -1,0 +1,48 @@
+{
+  "bio": "Full Stack Dev building responsive interfaces and reliable backend services. I turn ideas into complete web applications, connecting thoughtful frontend experiences with practical APIs and databases.",
+  "headline": "Full Stack Dev",
+  "skills": "TypeScript · Node.js · HTTP · TCP/IP\nBackend Engineering · Systems Exploration · Linux",
+  "education": "MCA · Mangalayatan University · 2026–2028 (Pursuing)\nSpecialisation: Cloud Computing\n\nBCA · Maulana Mazharul Haque Arabic and Persian University\nPassed out 2024 · CGPA: 8.0\n\nSenior Secondary · Paramount Academy, Muzaffarpur\nPassed out 2021\n\nSecondary · Paramount Academy, Muzaffarpur\nPassed out 2019",
+  "projects": [],
+  "expertise": [
+    {
+      "title": "Backend Development",
+      "technologies": "TypeScript · Node.js · HTTP · REST APIs",
+      "description": "Building backend services, understanding request-response cycles, and working with server-side logic."
+    },
+    {
+      "title": "Systems & Networking",
+      "technologies": "Linux · TCP/IP · HTTP/HTTPS · DNS · Operating Systems",
+      "description": "Exploring how web requests travel from browser to server, including DNS resolution, TCP connections, and HTTP communication. Building a foundation in Linux, processes, memory management, and network troubleshooting to support my cloud computing studies."
+    },
+    {
+      "title": "Engineering Tools",
+      "technologies": "Git · GitHub · Linux · Command line",
+      "description": "Tools for building, debugging, testing, and managing software projects."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Full Stack Developer",
+      "company": "Envisionedge Tech",
+      "period": "January 2025 – Present",
+      "type": "Full-time",
+      "responsibilities": [
+        "Develop and maintain responsive web interfaces and backend services.",
+        "Integrate APIs and databases to support application features and data flows.",
+        "Debug issues, improve application reliability, and collaborate on feature delivery."
+      ]
+    },
+    {
+      "role": "Web Development Intern",
+      "company": "Envisionedge Tech",
+      "period": "July 2024 – December 2024",
+      "type": "6-month internship",
+      "responsibilities": [
+        "Assisted with frontend components and backend development tasks.",
+        "Supported API integration, testing, and bug fixes for web applications.",
+        "Worked with the development team using Git and code reviews."
+      ]
+    }
+  ]
+}

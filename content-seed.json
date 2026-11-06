@@ -1,0 +1,38 @@
+{
+  "version": 0,
+  "bio": "I'm an engineering undergraduate who likes experimenting with ideas people haven't thought of. Currently exploring systems and backend development.",
+  "headline": "Engineering Undergrad \u00b7 Systems & Backend",
+  "education": "Engineering undergraduate \u00b7 Currently studying",
+  "skills": "Systems, backend development, and experimental builds",
+  "projects": [
+    {
+      "id": "example-0",
+      "title": "NeonDesk OS",
+      "preview": "In-browser vintage windowing simulation engine featuring draggable layered windows, stateful session storage, and CRT phosphor shader toggles.",
+      "url": "",
+      "tags": "Example project"
+    },
+    {
+      "id": "example-1",
+      "title": "Halftone Canvas",
+      "preview": "Custom WebGL shader pipeline generating procedural Floyd-Steinberg dithering and Bayer matrices directly in HTML5 canvas at 60 FPS.",
+      "url": "",
+      "tags": "Example project"
+    },
+    {
+      "id": "example-2",
+      "title": "Nat-Geo Rover Telemetry",
+      "preview": "Rugged off-road robotics telemetry dashboard. Real-time GPS coordinates, vehicle suspension metrics, and sensor status visualization.",
+      "url": "",
+      "tags": "Example project"
+    },
+    {
+      "id": "example-3",
+      "title": "TypeClassic Emulator",
+      "preview": "Pixel typography preview laboratory with mechanical typing feedback, custom font conversions, and SVG raster exports.",
+      "url": "",
+      "tags": "Example project"
+    }
+  ],
+  "posts": []
+}

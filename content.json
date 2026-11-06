@@ -1,0 +1,13 @@
+---
+layout: null
+permalink: /content.json
+---
+{
+  "bio": {{ site.data.portfolio.bio | jsonify }},
+  "headline": {{ site.data.portfolio.headline | jsonify }},
+  "skills": {{ site.data.portfolio.skills | jsonify }},
+  "education": {{ site.data.portfolio.education | jsonify }},
+  "expertise": {{ site.data.portfolio.expertise | default: site.data.expertise | jsonify }},
+  "experience": {{ site.data.portfolio.experience | jsonify }},
+  "projects": {{ site.data.portfolio.projects | jsonify }}
+}

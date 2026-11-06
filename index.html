@@ -1,0 +1,423 @@
+---
+layout: null
+---
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Aaquib Tanweer</title>
+<meta name="description" content="Aaquib Tanweer — Full Stack Dev building responsive interfaces, reliable backend services, and complete web applications.">
+<link rel="stylesheet" href="{{ '/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<script src="{{ '/app.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<script src="{{ '/content.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+<!-- Tailwind CSS CDN with Forms plugin -->
+
+<!-- FontAwesome Icons for authentic retro interface icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Local fonts keep text metrics consistent when third-party font services are blocked. -->
+<link rel="preload" href="{{ '/assets/SpaceGrotesk.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="{{ '/assets/SpaceMono-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="{{ '/assets/SpaceMono-Bold.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="{{ '/assets/VT323-Regular.ttf' | relative_url }}" as="font" type="font/ttf" crossorigin>
+
+<!-- BEGIN: Custom Retro Styles -->
+<style data-purpose="retro-patterns">
+    /* Horizontal pinstripes inspired by classic Mac System 7 */
+    .bg-pinstripes {
+      background: repeating-linear-gradient(
+        to bottom,
+        #121212,
+        #121212 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    }
+    
+    /* Dithered checkered pattern for retro scrollbars & accents */
+    .bg-dither-pattern {
+      background-image: radial-gradient(#121212 1px, transparent 0);
+      background-size: 3px 3px;
+    }
+
+    /* Custom chunky retro scrollbar */
+    .retro-scrollbar::-webkit-scrollbar {
+      width: 16px;
+    }
+    .retro-scrollbar::-webkit-scrollbar-track {
+      background: #E8E4D5;
+      border-left: 2px solid #121212;
+      background-image: radial-gradient(#121212 1px, transparent 0);
+      background-size: 4px 4px;
+    }
+    .retro-scrollbar::-webkit-scrollbar-thumb {
+      background: #FFFDF5;
+      border: 2px solid #121212;
+      box-shadow: inset 1px 1px 0 #fff;
+    }
+
+    /* 1-bit high contrast filter for illustrations */
+    .retro-monochrome-art {
+      filter: grayscale(100%) contrast(220%) brightness(95%);
+    }
+
+    /* Active button pressed state */
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #121212 !important;
+    }
+  </style>
+<!-- END: Custom Retro Styles -->
+</head>
+<body data-content-url="{{ '/content.json' | relative_url }}" class="bg-os-green min-h-screen font-sans text-os-border antialiased selection:bg-os-border selection:text-os-paper flex flex-col justify-between p-2 md:p-6 overflow-x-hidden relative">
+<a class="skip-link" href="#about-section">Skip to portfolio</a>
+<!-- BEGIN: Desktop Background Icons -->
+<aside aria-label="Desktop Shortcuts" class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" data-purpose="desktop-shortcuts">
+<!-- Top Left: Finder & Clock Icons -->
+<div class="pointer-events-auto absolute top-4 left-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-solid fa-face-smile text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Finder</span>
+</div>
+<div class="pointer-events-auto absolute top-24 left-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-compass text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Safari.sh</span>
+</div>
+<div class="pointer-events-auto absolute top-44 left-4 hidden sm:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-solid fa-hard-drive text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">HD_Docs</span>
+</div>
+<!-- Top Right: Folders & Storage -->
+<div class="pointer-events-auto absolute top-4 right-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-folder-closed text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Projects.dir</span>
+</div>
+<div class="pointer-events-auto absolute top-24 right-4 hidden sm:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-floppy-disk text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">v1.0.bak</span>
+</div>
+<div class="pointer-events-auto absolute top-44 right-4 hidden md:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-trash-can text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Trash</span>
+</div>
+</aside>
+<!-- END: Desktop Background Icons -->
+<!-- BEGIN: Main Window Container -->
+<div id="desktop-stage">
+<main data-mobile-view="about-section" class="relative z-10 w-full max-w-6xl mx-auto my-auto bg-os-paper border-[3px] border-os-border rounded-2xl shadow-hard-lg flex flex-col overflow-hidden">
+<div class="mobile-app-header"><a href="#about-section" class="mobile-brand"><span>AT</span>Portfolio OS v1.0</a><button id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="portfolio-sidebar"><i class="fa-solid fa-bars" aria-hidden="true"></i></button></div>
+<!-- BEGIN: Mac OS Title Bar -->
+<header class="h-11 bg-os-paper border-b-2 border-os-border flex items-center justify-between px-3 relative select-none">
+<!-- Classic Window Controls (Three Dots with retro outline) -->
+<div class="flex items-center gap-2 z-10">
+<button aria-label="Close window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+<button aria-label="Minimize window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+<button aria-label="Zoom window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+</div>
+<!-- Horizontal Pinstripes & Centered Title -->
+<div class="absolute inset-x-16 inset-y-0 flex items-center justify-center">
+<div class="w-full h-2.5 bg-pinstripes opacity-40"></div>
+<div class="absolute px-4 bg-os-paper border border-os-border rounded font-mono font-bold text-xs uppercase tracking-wider text-os-border flex items-center gap-2 shadow-hard-sm">
+<i class="fa-solid fa-window-restore text-[10px]"></i>
+<span class="">Portfolio.app — Aaquib Tanweer</span>
+</div>
+</div>
+<!-- Right Action Indicators -->
+<div class="flex items-center gap-1.5 z-10">
+<span class="text-[11px] font-mono px-2 py-0.5 border border-os-border rounded bg-os-sidebar">Mem: 64MB</span>
+<button aria-label="Window resize icon" class="w-4 h-4 border border-os-border flex items-center justify-center text-[10px]">
+<i class="fa-solid fa-up-right-and-down-left-from-center text-[8px]"></i>
+</button>
+</div>
+</header>
+<!-- END: Mac OS Title Bar -->
+<!-- BEGIN: Quick Action Utility Strip -->
+<nav aria-label="Window Toolbar" class="h-9 bg-os-panel border-b-2 border-os-border px-3 flex items-center justify-between font-mono text-xs overflow-x-auto">
+<div class="flex items-center gap-2">
+
+<button class="px-2.5 py-0.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-os-sidebar retro-btn font-semibold flex items-center gap-1.5" type="button">
+<i class="fa-solid fa-share-nodes text-[10px]"></i>
+<span class="">Share</span>
+</button>
+<button class="px-2.5 py-0.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-os-sidebar retro-btn font-semibold flex items-center gap-1.5" type="button">
+<i class="fa-solid fa-envelope text-[10px]"></i>
+<span class="">Get in Touch</span>
+</button>
+</div>
+<div class="flex items-center gap-3 text-xs">
+<span class="hidden sm:inline font-bold">Theme: <span class="underline">System 7 Cream</span></span>
+<span class="inline-flex items-center gap-1 font-bold text-green-700">
+<span class="w-2 h-2 rounded-full bg-green-600 inline-block"></span>
+          Ready
+        </span>
+</div>
+</nav>
+<!-- END: Quick Action Utility Strip -->
+<!-- BEGIN: Main App Workspace (Sidebar + Content) -->
+<div class="flex flex-col md:flex-row flex-1 min-h-[580px] bg-os-paper">
+<!-- BEGIN: Left Navigation Sidebar -->
+<aside id="portfolio-sidebar" class="w-full md:w-64 bg-os-sidebar border-b-2 md:border-b-0 md:border-r-2 border-os-border flex flex-col justify-between p-3 select-none">
+<div>
+<!-- Workspace Dropdown Box -->
+<div class="mb-4">
+<button class="w-full bg-os-paper border-2 border-os-border rounded-lg p-2 shadow-hard-sm flex items-center justify-between text-left hover:bg-white retro-btn">
+<div class="flex items-center gap-2 truncate">
+<div class="w-5 h-5 bg-os-border text-white flex items-center justify-center font-bold text-xs rounded">AT</div>
+<span class="font-bold text-sm truncate">Portfolio OS v1.0</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs ml-1"></i>
+</button>
+</div>
+<!-- Shortcuts / Navigation items -->
+<div class="space-y-4">
+<div>
+<div class="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<i class="fa-regular fa-compass"></i> Quick Jump
+              </div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="">
+<a class="flex items-center justify-between px-2 py-1.5 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#about-section">
+<span class=""><i class="fa-regular fa-comment-dots mr-1.5"></i> Threads</span>
+<span class="text-[10px] bg-neutral-200 px-1 rounded">2</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1.5 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#about-section">
+<span class=""><i class="fa-regular fa-star mr-1.5"></i> Starred</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Channels Listing (Reference match) -->
+<div>
+<div class="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<span class="flex items-center gap-1"><i class="fa-solid fa-folder-tree text-[10px]"></i> Channels</span>
+<i class="fa-solid fa-plus cursor-pointer hover:text-black"></i>
+</div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper nav-active" href="#about-section">
+<span class="truncate"># about-me</span>
+<span class="w-2 h-2 rounded-full bg-black"></span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#projects-section">
+<span class="truncate"># projects</span>
+<span id="sidebar-project-count" class="px-1.5 py-0.2 bg-os-border text-white text-[10px] rounded-full">4</span>
+</a>
+</li>
+
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#history-section">
+<span class="truncate"># work-history</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#projects-section">
+<span class="truncate"># experiments</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Direct Messages Section -->
+<div>
+<div class="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<span class="flex items-center gap-1"><i class="fa-solid fa-user-group text-[10px]"></i> Contacts</span>
+</div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="flex items-center gap-2 px-2 py-1 rounded hover:bg-os-paper cursor-pointer">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 border border-os-border"></span>
+<span class="truncate font-semibold">aaquib.tanweer</span>
+</li>
+<li class="flex items-center gap-2 px-2 py-1 rounded hover:bg-os-paper cursor-pointer text-neutral-500">
+<span class="w-2.5 h-2.5 rounded-full bg-neutral-400 border border-os-border"></span>
+<span class="truncate">recruiter-bot</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer Status Card -->
+<div class="mt-6 pt-3 border-t border-os-border/40 font-mono text-xs">
+<div class="bg-os-paper border border-os-border p-2 rounded shadow-hard-sm">
+<p class="font-bold text-[11px] uppercase text-neutral-700">Availability</p>
+<p class="text-green-700 font-bold flex items-center gap-1.5 mt-0.5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+              Open for Opportunities
+            </p>
+</div>
+</div>
+<div class="mobile-menu-actions"><button id="mobile-finder" type="button">Finder / Location</button><button id="mobile-share" type="button">Share portfolio</button></div>
+</aside>
+<!-- END: Left Navigation Sidebar -->
+<!-- BEGIN: Content Feed Area -->
+<section class="flex-1 flex flex-col justify-between overflow-hidden bg-os-paper">
+<!-- Main Channel Header Strip -->
+<div class="h-12 border-b-2 border-os-border px-4 flex items-center justify-between bg-os-paper select-none">
+<div class="flex items-center gap-3">
+<span class="font-bold text-base md:text-lg flex items-center gap-1">
+<span class="text-neutral-500 font-normal">#</span> about-me
+            </span>
+<span class="hidden sm:inline-block text-xs font-mono px-2 py-0.5 border border-os-border bg-os-panel rounded">
+              Members: [8]
+            </span>
+</div>
+<!-- Utility Icons -->
+<div class="flex items-center gap-3 text-sm">
+<button aria-label="Pinned items" class="hover:text-neutral-600 transition-colors">
+<i class="fa-solid fa-thumbtack"></i>
+</button>
+<button aria-label="Preferences" class="hover:text-neutral-600 transition-colors">
+<i class="fa-solid fa-gear"></i>
+</button>
+<button aria-label="Add to favorites" class="hover:text-neutral-600 transition-colors">
+<i class="fa-regular fa-star"></i>
+</button>
+</div>
+</div>
+<!-- Feed Body (Scrollable Workspace) -->
+<div class="flex-1 p-4 md:p-6 overflow-y-auto space-y-6 retro-scrollbar max-h-[620px]">
+<!-- BEGIN: Section A - About Me / Profile Post -->
+<article class="space-y-3" id="about-section">
+<!-- Author Header (matches aaquib.tanweer message from reference) -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="profile-avatar w-8 h-8 rounded border-2 border-os-border bg-os-panel flex items-center justify-center font-bold text-sm shadow-hard-sm">
+<img src="{{ '/assets/profile.png' | relative_url }}" alt="Aaquib Tanweer profile picture" width="40" height="40">
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-sm">aaquib.tanweer</span>
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-mono text-neutral-500">12:00 PM</span>
+</div>
+<p id="portfolio-headline" class="text-xs font-mono text-neutral-600">{{ site.data.portfolio.headline | escape }}</p>
+</div>
+</div>
+<!-- Message Badge / File Metadata -->
+<div class="flex items-center gap-2 text-xs font-mono">
+<span class="hidden sm:inline px-2 py-0.5 border border-os-border bg-os-panel rounded">25,39 kb</span>
+<span class="px-2 py-0.5 border border-os-border bg-os-paper rounded shadow-hard-sm font-bold">
+<i class="fa-regular fa-floppy-disk mr-1"></i> BIO.DAT
+                </span>
+</div>
+</div>
+<!-- Profile hero, matched to the supplied split-layout reference. -->
+<div class="profile-hero">
+  <div class="profile-hero-copy">
+    <h1 class="profile-name" aria-label="Aaquib Tanweer"><span>AAQUIB</span><span>TANWEER</span></h1>
+    <p class="profile-role">Full Stack Dev</p>
+    <p class="profile-intro">I build things, pull them apart,<br class="hero-desktop-break"> and ask why they work that way.</p>
+    <p id="portfolio-bio" class="profile-description">{{ site.data.portfolio.bio | escape }}</p>
+    <div class="profile-tags" aria-label="Focus areas"><span><i aria-hidden="true"></i>BACKEND</span><span><i aria-hidden="true"></i>FRONTEND</span></div>
+  </div>
+  <figure class="profile-portrait">
+    <img alt="Aaquib Tanweer profile picture" src="{{ '/assets/profile.png' | relative_url }}" width="1254" height="1254" fetchpriority="high">
+  </figure>
+</div>
+<!-- Skills & Badges Grid -->
+<div id="profile-credentials" class="profile-credentials grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono text-xs">
+<div class="p-2.5 bg-os-panel/50 border border-os-border rounded">
+<i class="credential-icon fa-solid fa-layer-group" aria-hidden="true"></i><p class="font-bold uppercase text-[11px] text-neutral-600 mb-1">Core Tech Stack</p>
+<p id="portfolio-skills">{{ site.data.portfolio.skills | escape }}</p>
+</div>
+<div class="education-tile p-2.5 bg-os-panel/50 border border-os-border rounded">
+<i class="credential-icon fa-solid fa-graduation-cap" aria-hidden="true"></i><p class="font-bold uppercase text-[11px] text-neutral-600 mb-1">Education</p>
+<p id="portfolio-education" style="white-space: pre-line">{{ site.data.portfolio.education | escape }}</p>
+</div>
+<div id="profile-expertise" aria-label="Engineering focus areas">
+{% assign expertise = site.data.portfolio.expertise | default: site.data.expertise %}
+{% for focus in expertise %}
+<div class="expertise-tile p-2.5 bg-os-panel/50 border border-os-border rounded"><i class="credential-icon fa-solid {% if forloop.index == 1 %}fa-server{% elsif forloop.index == 2 %}fa-microchip{% else %}fa-wrench{% endif %}" aria-hidden="true"></i><p class="font-bold uppercase text-[11px] text-neutral-600 mb-1">{{ focus.title | escape }}</p><p>{{ focus.technologies | escape }}</p>{% if focus.title == "Systems & Networking" %}<p class="mt-2 leading-relaxed">{{ focus.description | escape }}</p>{% endif %}</div>
+{% endfor %}
+</div>
+</div>
+<!-- Social Links Pills -->
+<div class="profile-socials flex flex-wrap gap-2 pt-2">
+<a class="px-3 py-1.5 bg-os-sidebar border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-black hover:text-white transition-all retro-btn" href="https://github.com/aaquib-tanweer" target="_blank" rel="noopener noreferrer" >
+<i class="fa-brands fa-github text-sm"></i> GitHub
+                </a>
+<a class="px-3 py-1.5 bg-os-sidebar border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-black hover:text-white transition-all retro-btn" href="https://x.com/aaquib_tanweer" target="_blank" rel="noopener noreferrer" >
+<i class="fa-brands fa-twitter text-sm"></i> X / Twitter
+                </a>
+<a class="px-3 py-1.5 bg-os-paper border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-yellow-200 transition-all retro-btn" href="mailto:aaquibtanweer@icloud.com">
+<i class="fa-regular fa-envelope text-sm"></i> Send Email
+                </a>
+</div>
+</article>
+<!-- END: Section A - About Me -->
+<article class="space-y-3 pt-4 border-t-2 border-os-border/30" id="projects-section">
+<div class="flex items-center justify-between"><h2 class="font-bold text-base">Featured Projects <span id="project-count"></span></h2></div>
+<div id="project-list" class="content-grid"><p class="empty-state">Loading projects…</p></div>
+</article>
+
+<article id="history-section" class="space-y-3 pt-4 border-t-2 border-os-border/30">
+<h2 class="font-bold text-base">Work History</h2>
+<div id="work-history" class="space-y-3">
+{% for job in site.data.portfolio.experience %}
+<div class="p-4 border-2 border-os-border rounded-lg bg-os-sidebar font-mono text-xs">
+<h3 class="font-bold text-sm">{{ job.role | escape }} · {{ job.company | escape }}</h3>
+<p class="mt-1 mb-2">{{ job.period | escape }} · {{ job.type | escape }}</p>
+<ul class="list-disc pl-4 space-y-1">{% for item in job.responsibilities %}<li>{{ item | escape }}</li>{% endfor %}</ul>
+</div>
+{% endfor %}
+</div>
+</article>
+</div>
+<!-- END: Feed Body -->
+<!-- BEGIN: Section D - Bottom Chat / Input Dock (Direct match to reference footer) -->
+<footer class="p-3 bg-os-panel border-t-2 border-os-border" id="contact-section">
+<div class="mobile-contact"><p>Reach me at <a href="mailto:aaquibtanweer@icloud.com">aaquibtanweer@icloud.com</a></p><a class="mobile-email-button" href="mailto:aaquibtanweer@icloud.com">Open Email <i class="fa-solid fa-paper-plane" aria-hidden="true"></i></a></div>
+<p id="contact-help" class="font-mono text-xs mb-2">Reach me at <a href="mailto:aaquibtanweer@icloud.com" class="underline">aaquibtanweer@icloud.com</a>. Open Email prepares your message in your email app; send it there.</p>
+<form class="flex items-center gap-2" id="contact-form">
+<div class="relative flex-1">
+<input class="w-full h-10 px-3.5 bg-os-paper border-2 border-os-border rounded-lg font-mono text-xs sm:text-sm placeholder:text-neutral-500 focus:outline-none focus:ring-0 focus:border-black shadow-hard-sm" id="chat-input" placeholder="Draft a message for Aaquib..." aria-label="Message for Aaquib" type="text">
+</div>
+<button class="h-10 px-6 bg-os-paper border-2 border-os-border rounded-lg font-mono font-bold text-xs sm:text-sm shadow-hard-sm hover:bg-black hover:text-white transition-all retro-btn flex items-center justify-center gap-1.5" type="submit">
+<span class="">Send</span>
+<i class="fa-solid fa-paper-plane text-xs"></i>
+</button>
+</form>
+</footer>
+<!-- END: Section D - Bottom Chat / Input Dock -->
+</section>
+<!-- END: Content Feed Area -->
+</div>
+<!-- END: Main App Workspace -->
+<!-- Status Bar / OS Footnote -->
+<div class="h-6 bg-os-sidebar border-t border-os-border px-3 flex items-center justify-between text-[10px] font-mono select-none">
+<span class="">Ready — Welcome to my workspace</span>
+<span class="">UTF-8 // Macintosh Classic Mode</span>
+</div>
+</main>
+</div>
+<nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+<a href="#about-section" aria-current="page"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
+<a href="#projects-section"><i class="fa-regular fa-calendar" aria-hidden="true"></i><span>Projects</span></a>
+<a href="#contact-section"><i class="fa-regular fa-address-book" aria-hidden="true"></i><span>Contact</span></a>
+</nav>
+<!-- END: Main Window Container -->
+<!-- Small OS System Status on Bottom Right of screen -->
+<footer class="mt-2 text-center select-none">
+<p class="font-mono text-xs font-bold text-os-border/80">
+      © 2026 Aaquib Tanweer. Built with curiosity. Powered by experiments. 
+    </p>
+</footer>
+
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<button id="restore-window" class="restore-window" hidden>↗ Open Portfolio.app</button>
+</body></html>

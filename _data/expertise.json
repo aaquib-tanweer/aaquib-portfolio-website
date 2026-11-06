@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Backend Development",
+    "technologies": "TypeScript \u00b7 Node.js \u00b7 HTTP \u00b7 REST APIs",
+    "description": "Building backend services, understanding request-response cycles, and working with server-side logic."
+  },
+  {
+    "title": "Systems & Networking",
+    "technologies": "TCP/IP \u00b7 HTTP internals \u00b7 Operating Systems fundamentals",
+    "description": "Exploring how servers communicate, how protocols work, and what happens beneath application code."
+  },
+  {
+    "title": "Engineering Tools",
+    "technologies": "Git \u00b7 GitHub \u00b7 Linux \u00b7 Command line",
+    "description": "Tools for building, debugging, testing, and managing software projects."
+  }
+]

@@ -1,0 +1,37 @@
+title: Aaquib Tanweer — Portfolio.app
+description: Full Stack Dev building responsive interfaces, reliable backend services, and complete web applications.
+url: "https://aaquib-tanweer.github.io"
+baseurl: "/aaquib-portfolio-website"
+repository: aaquib-tanweer/aaquib-portfolio-website
+timezone: Asia/Kolkata
+markdown: kramdown
+highlighter: rouge
+future: false
+strict_front_matter: true
+kramdown:
+  input: GFM
+  hard_wrap: false
+exclude:
+  - node_modules
+  - vendor
+  - .bundle
+  - .portfolio-data
+  - _private
+  - _legacy
+  - scripts
+  - tests
+  - src
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - package-lock.json
+  - tailwind.config.cjs
+  - content-seed.json
+  - stitch_personal_portfolio_blog_website
+  - preview.png
+  - blog-preview.png
+  - contact-preview.png
+  - jekyll-preview.png
+  - admin-preview.png
+  - server.py

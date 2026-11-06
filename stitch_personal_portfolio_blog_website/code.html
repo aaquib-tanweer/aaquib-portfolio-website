@@ -1,0 +1,555 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Portfolio.app — Julia Klochok</title>
+<!-- Tailwind CSS CDN with Forms plugin -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- FontAwesome Icons for authentic retro interface icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<!-- Google Fonts: Space Grotesk & Space Mono for retro computing vibes -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'os-green': '#7BB662',
+            'os-green-dark': '#659C4E',
+            'os-paper': '#FFFDF5',
+            'os-sidebar': '#F6F3E7',
+            'os-panel': '#ECE8D9',
+            'os-border': '#121212',
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+          boxShadow: {
+            'hard': '4px 4px 0px #121212',
+            'hard-sm': '2px 2px 0px #121212',
+            'hard-lg': '7px 7px 0px #121212',
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Retro Styles -->
+<style data-purpose="retro-patterns">
+    /* Horizontal pinstripes inspired by classic Mac System 7 */
+    .bg-pinstripes {
+      background: repeating-linear-gradient(
+        to bottom,
+        #121212,
+        #121212 1px,
+        transparent 1px,
+        transparent 3px
+      );
+    }
+    
+    /* Dithered checkered pattern for retro scrollbars & accents */
+    .bg-dither-pattern {
+      background-image: radial-gradient(#121212 1px, transparent 0);
+      background-size: 3px 3px;
+    }
+
+    /* Custom chunky retro scrollbar */
+    .retro-scrollbar::-webkit-scrollbar {
+      width: 16px;
+    }
+    .retro-scrollbar::-webkit-scrollbar-track {
+      background: #E8E4D5;
+      border-left: 2px solid #121212;
+      background-image: radial-gradient(#121212 1px, transparent 0);
+      background-size: 4px 4px;
+    }
+    .retro-scrollbar::-webkit-scrollbar-thumb {
+      background: #FFFDF5;
+      border: 2px solid #121212;
+      box-shadow: inset 1px 1px 0 #fff;
+    }
+
+    /* 1-bit high contrast filter for illustrations */
+    .retro-monochrome-art {
+      filter: grayscale(100%) contrast(220%) brightness(95%);
+    }
+
+    /* Active button pressed state */
+    .retro-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px #121212 !important;
+    }
+  </style>
+<!-- END: Custom Retro Styles -->
+</head>
+<body class="bg-os-green min-h-screen font-sans text-os-border antialiased selection:bg-os-border selection:text-os-paper flex flex-col justify-between p-2 md:p-6 overflow-x-hidden relative">
+<!-- BEGIN: Desktop Background Icons -->
+<aside aria-label="Desktop Shortcuts" class="absolute inset-0 pointer-events-none overflow-hidden select-none z-0" data-purpose="desktop-shortcuts">
+<!-- Top Left: Finder & Clock Icons -->
+<div class="pointer-events-auto absolute top-4 left-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-solid fa-face-smile text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Finder</span>
+</div>
+<div class="pointer-events-auto absolute top-24 left-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-compass text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Safari.sh</span>
+</div>
+<div class="pointer-events-auto absolute top-44 left-4 hidden sm:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-solid fa-hard-drive text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">HD_Docs</span>
+</div>
+<!-- Top Right: Folders & Storage -->
+<div class="pointer-events-auto absolute top-4 right-4 flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-folder-closed text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Projects.dir</span>
+</div>
+<div class="pointer-events-auto absolute top-24 right-4 hidden sm:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-floppy-disk text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">v1.0.bak</span>
+</div>
+<div class="pointer-events-auto absolute top-44 right-4 hidden md:flex flex-col items-center gap-1 group cursor-pointer hover:opacity-80 transition-opacity">
+<div class="w-14 h-14 bg-os-paper border-2 border-os-border rounded-lg shadow-hard flex items-center justify-center">
+<i class="fa-regular fa-trash-can text-2xl text-os-border"></i>
+</div>
+<span class="text-xs font-mono font-bold px-1.5 py-0.5 bg-os-paper border border-os-border shadow-hard-sm rounded">Trash</span>
+</div>
+</aside>
+<!-- END: Desktop Background Icons -->
+<!-- BEGIN: Main Window Container -->
+<main class="relative z-10 w-full max-w-6xl mx-auto my-auto bg-os-paper border-[3px] border-os-border rounded-2xl shadow-hard-lg flex flex-col overflow-hidden">
+<!-- BEGIN: Mac OS Title Bar -->
+<header class="h-11 bg-os-paper border-b-2 border-os-border flex items-center justify-between px-3 relative select-none">
+<!-- Classic Window Controls (Three Dots with retro outline) -->
+<div class="flex items-center gap-2 z-10">
+<button aria-label="Close window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+<button aria-label="Minimize window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+<button aria-label="Zoom window" class="w-3.5 h-3.5 rounded-full border border-os-border bg-os-paper hover:bg-black transition-colors focus:outline-none"></button>
+</div>
+<!-- Horizontal Pinstripes & Centered Title -->
+<div class="absolute inset-x-16 inset-y-0 flex items-center justify-center">
+<div class="w-full h-2.5 bg-pinstripes opacity-40"></div>
+<div class="absolute px-4 bg-os-paper border border-os-border rounded font-mono font-bold text-xs uppercase tracking-wider text-os-border flex items-center gap-2 shadow-hard-sm">
+<i class="fa-solid fa-window-restore text-[10px]"></i>
+<span class="">Portfolio.app — Waquar Tanweer</span>
+</div>
+</div>
+<!-- Right Action Indicators -->
+<div class="flex items-center gap-1.5 z-10">
+<span class="text-[11px] font-mono px-2 py-0.5 border border-os-border rounded bg-os-sidebar">Mem: 64MB</span>
+<button aria-label="Window resize icon" class="w-4 h-4 border border-os-border flex items-center justify-center text-[10px]">
+<i class="fa-solid fa-up-right-and-down-left-from-center text-[8px]"></i>
+</button>
+</div>
+</header>
+<!-- END: Mac OS Title Bar -->
+<!-- BEGIN: Quick Action Utility Strip -->
+<nav aria-label="Window Toolbar" class="h-9 bg-os-panel border-b-2 border-os-border px-3 flex items-center justify-between font-mono text-xs overflow-x-auto">
+<div class="flex items-center gap-2">
+<button class="px-2.5 py-0.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-os-sidebar retro-btn font-semibold flex items-center gap-1.5" type="button">
+<i class="fa-solid fa-plus text-[10px]"></i>
+<span class="">New</span>
+</button>
+<button class="px-2.5 py-0.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-os-sidebar retro-btn font-semibold flex items-center gap-1.5" type="button">
+<i class="fa-solid fa-share-nodes text-[10px]"></i>
+<span class="">Share</span>
+</button>
+<button class="px-2.5 py-0.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-os-sidebar retro-btn font-semibold flex items-center gap-1.5" type="button">
+<i class="fa-solid fa-envelope text-[10px]"></i>
+<span class="">Get in Touch</span>
+</button>
+</div>
+<div class="flex items-center gap-3 text-xs">
+<span class="hidden sm:inline font-bold">Theme: <span class="underline">System 7 Cream</span></span>
+<span class="inline-flex items-center gap-1 font-bold text-green-700">
+<span class="w-2 h-2 rounded-full bg-green-600 inline-block"></span>
+          Ready
+        </span>
+</div>
+</nav>
+<!-- END: Quick Action Utility Strip -->
+<!-- BEGIN: Main App Workspace (Sidebar + Content) -->
+<div class="flex flex-col md:flex-row flex-1 min-h-[580px] bg-os-paper">
+<!-- BEGIN: Left Navigation Sidebar -->
+<aside class="w-full md:w-64 bg-os-sidebar border-b-2 md:border-b-0 md:border-r-2 border-os-border flex flex-col justify-between p-3 select-none">
+<div>
+<!-- Workspace Dropdown Box -->
+<div class="mb-4">
+<button class="w-full bg-os-paper border-2 border-os-border rounded-lg p-2 shadow-hard-sm flex items-center justify-between text-left hover:bg-white retro-btn">
+<div class="flex items-center gap-2 truncate">
+<div class="w-5 h-5 bg-os-border text-white flex items-center justify-center font-bold text-xs rounded">JK</div>
+<span class="font-bold text-sm truncate">Portfolio OS v1.0</span>
+</div>
+<i class="fa-solid fa-chevron-down text-xs ml-1"></i>
+</button>
+</div>
+<!-- Shortcuts / Navigation items -->
+<div class="space-y-4">
+<div>
+<div class="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<i class="fa-regular fa-compass"></i> Quick Jump
+              </div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="">
+<a class="flex items-center justify-between px-2 py-1.5 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#about-section">
+<span class=""><i class="fa-regular fa-comment-dots mr-1.5"></i> Threads</span>
+<span class="text-[10px] bg-neutral-200 px-1 rounded">2</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1.5 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#about-section">
+<span class=""><i class="fa-regular fa-star mr-1.5"></i> Starred</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Channels Listing (Reference match) -->
+<div>
+<div class="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<span class="flex items-center gap-1"><i class="fa-solid fa-folder-tree text-[10px]"></i> Channels</span>
+<i class="fa-solid fa-plus cursor-pointer hover:text-black"></i>
+</div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded bg-os-paper border-2 border-os-border shadow-hard-sm font-bold text-black" href="#about-section">
+<span class="truncate"># about-me</span>
+<span class="w-2 h-2 rounded-full bg-black"></span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#projects-section">
+<span class="truncate"># projects</span>
+<span class="px-1.5 py-0.2 bg-os-border text-white text-[10px] rounded-full">4</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#writing-section">
+<span class="truncate"># blog-notes</span>
+<span class="px-1.5 py-0.2 bg-neutral-300 text-black text-[10px] rounded-full">3</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#contact-section">
+<span class="truncate"># work-history</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#contact-section">
+<span class="truncate"># nat-geo-rover</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Direct Messages Section -->
+<div>
+<div class="flex items-center justify-between text-xs font-mono font-bold uppercase tracking-wider text-neutral-600 mb-1.5">
+<span class="flex items-center gap-1"><i class="fa-solid fa-user-group text-[10px]"></i> Contacts</span>
+</div>
+<ul class="space-y-1 font-mono text-xs">
+<li class="flex items-center gap-2 px-2 py-1 rounded hover:bg-os-paper cursor-pointer">
+<span class="w-2.5 h-2.5 rounded-full bg-green-500 border border-os-border"></span>
+<span class="truncate font-semibold">julia.klochok</span>
+</li>
+<li class="flex items-center gap-2 px-2 py-1 rounded hover:bg-os-paper cursor-pointer text-neutral-500">
+<span class="w-2.5 h-2.5 rounded-full bg-neutral-400 border border-os-border"></span>
+<span class="truncate">recruiter-bot</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Sidebar Footer Status Card -->
+<div class="mt-6 pt-3 border-t border-os-border/40 font-mono text-xs">
+<div class="bg-os-paper border border-os-border p-2 rounded shadow-hard-sm">
+<p class="font-bold text-[11px] uppercase text-neutral-700">Availability</p>
+<p class="text-green-700 font-bold flex items-center gap-1.5 mt-0.5">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+              Open for Opportunities
+            </p>
+</div>
+</div>
+</aside>
+<!-- END: Left Navigation Sidebar -->
+<!-- BEGIN: Content Feed Area -->
+<section class="flex-1 flex flex-col justify-between overflow-hidden bg-os-paper">
+<!-- Main Channel Header Strip -->
+<div class="h-12 border-b-2 border-os-border px-4 flex items-center justify-between bg-os-paper select-none">
+<div class="flex items-center gap-3">
+<span class="font-bold text-base md:text-lg flex items-center gap-1">
+<span class="text-neutral-500 font-normal">#</span> about-me
+            </span>
+<span class="hidden sm:inline-block text-xs font-mono px-2 py-0.5 border border-os-border bg-os-panel rounded">
+              Members: [8]
+            </span>
+</div>
+<!-- Utility Icons -->
+<div class="flex items-center gap-3 text-sm">
+<button aria-label="Pinned items" class="hover:text-neutral-600 transition-colors">
+<i class="fa-solid fa-thumbtack"></i>
+</button>
+<button aria-label="Preferences" class="hover:text-neutral-600 transition-colors">
+<i class="fa-solid fa-gear"></i>
+</button>
+<button aria-label="Add to favorites" class="hover:text-neutral-600 transition-colors">
+<i class="fa-regular fa-star"></i>
+</button>
+</div>
+</div>
+<!-- Feed Body (Scrollable Workspace) -->
+<div class="flex-1 p-4 md:p-6 overflow-y-auto space-y-6 retro-scrollbar max-h-[620px]">
+<!-- System Announcement Pill -->
+<div class="border-2 border-dashed border-os-border/60 bg-os-panel/40 p-3 rounded-lg text-xs font-mono flex items-start sm:items-center justify-between gap-2">
+<div class="flex items-center gap-2">
+<i class="fa-solid fa-bullhorn text-neutral-700"></i>
+<span class="">Sup?</span>
+</div>
+<span class="font-bold uppercase tracking-wider text-[10px] bg-os-paper border border-os-border px-2 py-0.5 rounded shadow-hard-sm">Online</span>
+</div>
+<!-- BEGIN: Section A - About Me / Profile Post -->
+<article class="space-y-3" id="about-section">
+<!-- Author Header (matches julia.klochok message from reference) -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded border-2 border-os-border bg-os-panel flex items-center justify-center font-bold text-sm shadow-hard-sm">
+<i class="fa-solid fa-user-ninja"></i>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-bold text-sm">waquar.tanweer</span>
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-mono text-neutral-500">12:00 PM</span>
+</div>
+<p class="text-xs font-mono text-neutral-600">Full-Stack Creative Developer &amp; Systems Engineer</p>
+</div>
+</div>
+<!-- Message Badge / File Metadata -->
+<div class="flex items-center gap-2 text-xs font-mono">
+<span class="hidden sm:inline px-2 py-0.5 border border-os-border bg-os-panel rounded">25,39 kb</span>
+<span class="px-2 py-0.5 border border-os-border bg-os-paper rounded shadow-hard-sm font-bold">
+<i class="fa-regular fa-floppy-disk mr-1"></i> BIO.DAT
+                </span>
+</div>
+</div>
+<!-- Profile Narrative & Image Frame -->
+<div class="bg-os-paper border-2 border-os-border rounded-xl p-4 md:p-5 shadow-hard space-y-4">
+<p class="text-sm md:text-base leading-relaxed">
+                Hi, I'm&nbsp;<strong><u>&nbsp;Waquar Tanweer</u></strong>. engineering undergrad i like to experiments with things which people can't think of, cirrently working on systems and backend</p>
+<!-- Authentic Dithered/Halftone Jeep Vehicle Feature Image (Direct reference to prompt image) -->
+<div class="border-2 border-os-border rounded-lg overflow-hidden bg-black p-1 shadow-hard-sm">
+<div class="bg-os-paper border border-os-border p-3 flex flex-col items-center">
+<img alt="Jeep Rover Offroad in rugged terrain - retro graphic reference" class="w-full max-h-72 object-cover rounded border-2 border-os-border retro-monochrome-art shadow-hard-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHfOCHuxkRN2qgIwS3Rsvpg50tBUg_4PjwBR_YngWaUEnDY5Rd1S34rrGK0IoHG0LiZauLvDCJWwZEfai6B1HBJghfY9gzH3or0jFac5pe3i3SDSYzW8-Ac2hCVagdVfWK_lemUqpN1k74hU22oSfuicfD_rPt_S5lgNREzcGPJPLXeIZBKCLOx8Kk27eI4RZWXK5bMVcdLKDCzIAR4aNpPURr0xdfWLT8rqhfvXecDFD-eyOKdhqQtF5T4cL8Bx3xswd8paejRwnBwu8">
+<div class="w-full flex items-center justify-between mt-2 pt-2 border-t border-os-border font-mono text-xs text-neutral-700">
+<span class="font-bold flex items-center gap-1.5"></span>
+<span class="italic">1-bit dithered preview mode</span>
+</div>
+</div>
+</div>
+<!-- Skills & Badges Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
+<div class="p-2.5 bg-os-panel/50 border border-os-border rounded">
+<p class="font-bold uppercase text-[11px] text-neutral-600 mb-1">Core Tech Stack</p>
+<p class="">TypeScript, React / Next.js, Node.js, WebGL, TailwindCSS, Rust basics</p>
+</div>
+<div class="p-2.5 bg-os-panel/50 border border-os-border rounded">
+<p class="font-bold uppercase text-[11px] text-neutral-600 mb-1">Credentials &amp; Degree</p>
+<p class="">B.S. in Computer Science &amp; Interaction Design (Graduated with Honors)</p>
+</div>
+</div>
+<!-- Social Links Pills -->
+<div class="flex flex-wrap gap-2 pt-2">
+<a class="px-3 py-1.5 bg-os-sidebar border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-black hover:text-white transition-all retro-btn" href="https://github.com" rel="noreferrer" target="_blank">
+<i class="fa-brands fa-github text-sm"></i> GitHub
+                </a>
+<a class="px-3 py-1.5 bg-os-sidebar border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-black hover:text-white transition-all retro-btn" href="https://twitter.com" rel="noreferrer" target="_blank">
+<i class="fa-brands fa-x-twitter text-sm"></i> @klochok
+                </a>
+<a class="px-3 py-1.5 bg-os-sidebar border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-black hover:text-white transition-all retro-btn" href="https://linkedin.com" rel="noreferrer" target="_blank">
+<i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+                </a>
+<a class="px-3 py-1.5 bg-os-paper border-2 border-os-border rounded-md shadow-hard-sm text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-yellow-200 transition-all retro-btn" href="mailto:julia@example.com">
+<i class="fa-regular fa-envelope text-sm"></i> Send Email
+                </a>
+</div>
+</div>
+</article>
+<!-- END: Section A - About Me -->
+<!-- BEGIN: Section B - Featured Projects -->
+<article class="space-y-3 pt-4 border-t-2 border-os-border/30" id="projects-section">
+<div class="flex items-center justify-between">
+<h2 class="font-bold text-base flex items-center gap-2">
+<span class="w-3 h-3 bg-os-border inline-block rounded-sm"></span>
+<span class="">Archive: Featured Projects [4]</span>
+</h2>
+<span class="text-xs font-mono text-neutral-500">Sorted by: Recency</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Project 1 -->
+<div class="bg-os-paper border-2 border-os-border rounded-xl p-4 shadow-hard flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between mb-2">
+<span class="font-bold text-base">NeonDesk OS</span>
+<span class="text-xs font-mono px-2 py-0.5 bg-os-panel border border-os-border rounded">2026</span>
+</div>
+<p class="text-xs text-neutral-700 leading-relaxed mb-3">
+                    In-browser vintage windowing simulation engine featuring draggable layered windows, stateful session storage, and CRT phosphor shader toggles.
+                  </p>
+<div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#React</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#Zustand</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#WebAudio</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-os-border font-mono text-xs">
+<button class="w-full py-1.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-black hover:text-white font-bold transition-all retro-btn" type="button">Live Demo</button>
+<button class="w-full py-1.5 bg-os-panel border border-os-border rounded shadow-hard-sm hover:bg-neutral-300 font-bold transition-all retro-btn" type="button">Source</button>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-os-paper border-2 border-os-border rounded-xl p-4 shadow-hard flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between mb-2">
+<span class="font-bold text-base">Halftone Canvas</span>
+<span class="text-xs font-mono px-2 py-0.5 bg-os-panel border border-os-border rounded">2025</span>
+</div>
+<p class="text-xs text-neutral-700 leading-relaxed mb-3">
+                    Custom WebGL shader pipeline generating procedural Floyd-Steinberg dithering and Bayer matrices directly in HTML5 canvas at 60 FPS.
+                  </p>
+<div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#WebGL</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#GLSL</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#TypeScript</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-os-border font-mono text-xs">
+<button class="w-full py-1.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-black hover:text-white font-bold transition-all retro-btn" type="button">Live Demo</button>
+<button class="w-full py-1.5 bg-os-panel border border-os-border rounded shadow-hard-sm hover:bg-neutral-300 font-bold transition-all retro-btn" type="button">Source</button>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-os-paper border-2 border-os-border rounded-xl p-4 shadow-hard flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between mb-2">
+<span class="font-bold text-base">Nat-Geo Rover Telemetry</span>
+<span class="text-xs font-mono px-2 py-0.5 bg-os-panel border border-os-border rounded">2025</span>
+</div>
+<p class="text-xs text-neutral-700 leading-relaxed mb-3">
+                    Rugged off-road robotics telemetry dashboard. Real-time GPS coordinates, vehicle suspension metrics, and sensor status visualization.
+                  </p>
+<div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#WebSocket</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#IoT</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#Tailwind</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-os-border font-mono text-xs">
+<button class="w-full py-1.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-black hover:text-white font-bold transition-all retro-btn" type="button">Live Demo</button>
+<button class="w-full py-1.5 bg-os-panel border border-os-border rounded shadow-hard-sm hover:bg-neutral-300 font-bold transition-all retro-btn" type="button">Source</button>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="bg-os-paper border-2 border-os-border rounded-xl p-4 shadow-hard flex flex-col justify-between hover:translate-y-[-2px] transition-transform">
+<div>
+<div class="flex items-start justify-between mb-2">
+<span class="font-bold text-base">TypeClassic Emulator</span>
+<span class="text-xs font-mono px-2 py-0.5 bg-os-panel border border-os-border rounded">2024</span>
+</div>
+<p class="text-xs text-neutral-700 leading-relaxed mb-3">
+                    Pixel typography preview laboratory with mechanical typing feedback, custom font conversions, and SVG raster exports.
+                  </p>
+<div class="flex flex-wrap gap-1.5 mb-4 font-mono text-[11px]">
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#Typography</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#Canvas</span>
+<span class="bg-os-sidebar border border-os-border px-1.5 py-0.5 rounded">#NextJS</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-os-border font-mono text-xs">
+<button class="w-full py-1.5 bg-os-paper border border-os-border rounded shadow-hard-sm hover:bg-black hover:text-white font-bold transition-all retro-btn" type="button">Live Demo</button>
+<button class="w-full py-1.5 bg-os-panel border border-os-border rounded shadow-hard-sm hover:bg-neutral-300 font-bold transition-all retro-btn" type="button">Source</button>
+</div>
+</div>
+</div>
+</article>
+<!-- END: Section B - Featured Projects -->
+<!-- BEGIN: Section C - Blog Reviews & Essays -->
+<article class="space-y-3 pt-4 border-t-2 border-os-border/30" id="writing-section">
+<div class="flex items-center justify-between">
+<h2 class="font-bold text-base flex items-center gap-2">
+<i class="fa-solid fa-book-bookmark text-sm"></i>
+<span class="">Articles &amp; Thoughts</span>
+</h2>
+<span class="text-xs font-mono text-neutral-500">Read time avg: 5 min</span>
+</div>
+<div class="space-y-2.5">
+<div class="p-3 bg-os-paper border-2 border-os-border rounded-lg shadow-hard-sm hover:bg-os-sidebar transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-bold text-sm">Building Brutalist UIs in 2026: Why Pinstripes &amp; 1-bit Shadows Matter</h3>
+<p class="text-xs text-neutral-600 font-mono mt-0.5">Exploration of tactile skeuomorphism, digital nostalgia, and UX satisfaction.</p>
+</div>
+<span class="text-[11px] font-mono whitespace-nowrap px-2 py-0.5 bg-os-panel border border-os-border rounded self-start sm:self-center">5 min • Oct 2026</span>
+</div>
+<div class="p-3 bg-os-paper border-2 border-os-border rounded-lg shadow-hard-sm hover:bg-os-sidebar transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-bold text-sm">From System 7 to Modern Web: Recreating Nostalgic OS Components</h3>
+<p class="text-xs text-neutral-600 font-mono mt-0.5">Step-by-step breakdown using CSS grid, border offsets, and semantic HTML.</p>
+</div>
+<span class="text-[11px] font-mono whitespace-nowrap px-2 py-0.5 bg-os-panel border border-os-border rounded self-start sm:self-center">8 min • Sep 2026</span>
+</div>
+<div class="p-3 bg-os-paper border-2 border-os-border rounded-lg shadow-hard-sm hover:bg-os-sidebar transition-colors cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+<div>
+<h3 class="font-bold text-sm">The Art of Halftone and Dithering in Digital Graphics</h3>
+<p class="text-xs text-neutral-600 font-mono mt-0.5">How limited color palettes evoke profound depth and save bandwidth.</p>
+</div>
+<span class="text-[11px] font-mono whitespace-nowrap px-2 py-0.5 bg-os-panel border border-os-border rounded self-start sm:self-center">4 min • Aug 2026</span>
+</div>
+</div>
+</article>
+<!-- END: Section C - Blog Reviews & Essays -->
+</div>
+<!-- END: Feed Body -->
+<!-- BEGIN: Section D - Bottom Chat / Input Dock (Direct match to reference footer) -->
+<footer class="p-3 bg-os-panel border-t-2 border-os-border" id="contact-section">
+<form class="flex items-center gap-2" onsubmit="event.preventDefault(); const inp = document.getElementById('chat-input'); if(inp.value.trim()){ alert('Message sent to Julia: ' + inp.value); inp.value=''; }">
+<div class="relative flex-1">
+<input class="w-full h-10 px-3.5 bg-os-paper border-2 border-os-border rounded-lg font-mono text-xs sm:text-sm placeholder:text-neutral-500 focus:outline-none focus:ring-0 focus:border-black shadow-hard-sm" id="chat-input" placeholder="Type your message or leave your email for Julia..." type="text">
+</div>
+<button class="h-10 px-6 bg-os-paper border-2 border-os-border rounded-lg font-mono font-bold text-xs sm:text-sm shadow-hard-sm hover:bg-black hover:text-white transition-all retro-btn flex items-center justify-center gap-1.5" type="submit">
+<span class="">Send</span>
+<i class="fa-solid fa-paper-plane text-xs"></i>
+</button>
+</form>
+</footer>
+<!-- END: Section D - Bottom Chat / Input Dock -->
+</section>
+<!-- END: Content Feed Area -->
+</div>
+<!-- END: Main App Workspace -->
+<!-- Status Bar / OS Footnote -->
+<div class="h-6 bg-os-sidebar border-t border-os-border px-3 flex items-center justify-between text-[10px] font-mono select-none">
+<span class="">Ready — 100% Canvas Rendered</span>
+<span class="">UTF-8 // Macintosh Classic Mode</span>
+</div>
+</main>
+<!-- END: Main Window Container -->
+<!-- Small OS System Status on Bottom Right of screen -->
+<footer class="mt-2 text-center select-none">
+<p class="font-mono text-xs font-bold text-os-border/80">
+      © 2026 Julia Klochok. Handcrafted with semantic retro aesthetics.
+    </p>
+</footer>
+
+
+</body></html>
