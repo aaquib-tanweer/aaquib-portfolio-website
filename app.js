@@ -18,6 +18,8 @@ function jump(id) {
   setMobileView(id);
   const section = document.querySelector(id);
   if (!section) return;
+  section.setAttribute('tabindex', '-1');
+  section.focus({preventScroll: true});
   if (matchMedia('(max-width: 767px)').matches) window.scrollTo({top: 0, behavior: 'instant'});
   else section.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
   const link = document.querySelector(`aside a[href="${id}"]`);
@@ -134,7 +136,7 @@ function setMobileView(id) {
   closeMobileMenu();
   if (matchMedia('(max-width: 767px)').matches) {
     feed.scrollTop = 0;
-    const labels = {'#about-section':'about-me','#projects-section':'projects','#history-section':'work-history','#contact-section':'contact'};
+    const labels = {'#about-section':'about-me','#services-section':'services','#projects-section':'projects','#history-section':'work-history','#contact-section':'contact'};
     document.querySelector('section > div:first-child > div:first-child > span:first-child').textContent = '# ' + (labels[id] || 'about-me');
   }
 }
@@ -159,3 +161,16 @@ function fitDesktopWindow() {
 }
 window.addEventListener('resize', fitDesktopWindow);
 fitDesktopWindow();
+
+// Reveal once as services enter the workspace; content stays visible without JS.
+const serviceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+if ('IntersectionObserver' in window && !serviceMotion.matches) {
+  const serviceObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('service-entered');
+      serviceObserver.unobserve(entry.target);
+    });
+  }, {threshold: 0.08});
+  document.querySelectorAll('[data-service-reveal]').forEach(item => serviceObserver.observe(item));
+}

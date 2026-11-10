@@ -8,10 +8,11 @@ const liquid = new Liquid();
 liquid.registerFilter('relative_url', value => value);
 
 const portfolio = JSON.parse(await readFile(resolve(root, '_data/portfolio.json'), 'utf8'));
+const services = JSON.parse(await readFile(resolve(root, '_data/services.json'), 'utf8'));
 const template = await readFile(resolve(root, 'index.html'), 'utf8');
 const html = await liquid.parseAndRender(
   template.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, ''),
-  {site: {data: {portfolio}, time: new Date()}}
+  {site: {data: {portfolio, services}, time: new Date()}}
 );
 
 await rm(output, {recursive: true, force: true});

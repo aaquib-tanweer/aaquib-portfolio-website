@@ -1,0 +1,145 @@
+[
+  {
+    "number": "01",
+    "title": "Custom Website Development",
+    "description": "A considered home for your business, built around your identity.",
+    "tools": "React \u00b7 Next.js \u00b7 TypeScript \u00b7 Tailwind CSS",
+    "items": [
+      "Fully custom-coded websites",
+      "Business and corporate websites",
+      "Personal portfolios",
+      "Responsive and mobile-first development",
+      "Modern websites using React, Next.js, and TypeScript"
+    ]
+  },
+  {
+    "number": "02",
+    "title": "Full-Stack Web Applications",
+    "description": "From the first interaction to the database behind it.",
+    "tools": "Next.js \u00b7 TypeScript \u00b7 Supabase",
+    "items": [
+      "Custom web applications",
+      "SaaS platforms and dashboards",
+      "Authentication and user management",
+      "Role-based access control (RBAC)",
+      "Database integration and backend functionality",
+      "API development and third-party integrations"
+    ]
+  },
+  {
+    "number": "03",
+    "title": "E-Commerce Development",
+    "description": "Thoughtful shopping experiences, from discovery to checkout.",
+    "tools": "Shopify \u00b7 Custom storefronts \u00b7 Payments",
+    "items": [
+      "Shopify store development and customization",
+      "Custom e-commerce websites",
+      "Product catalogs and inventory management",
+      "Shopping carts and checkout integration",
+      "Payment gateway integration",
+      "Store optimization and maintenance"
+    ]
+  },
+  {
+    "number": "04",
+    "title": "Landing Pages & Conversion-Focused Websites",
+    "description": "One clear story. One purposeful next step.",
+    "tools": "React \u00b7 Tailwind CSS \u00b7 CRM integrations",
+    "items": [
+      "High-converting landing pages",
+      "Product launch pages",
+      "Lead-generation websites",
+      "Marketing campaign pages",
+      "Responsive promotional websites",
+      "Contact forms and CRM integrations"
+    ]
+  },
+  {
+    "number": "05",
+    "title": "UI/UX Design & Website Redesign",
+    "description": "Make your product clearer, easier, and a pleasure to use.",
+    "tools": "Wireframes \u00b7 Prototypes \u00b7 Design systems",
+    "items": [
+      "Modern interface design",
+      "Complete website redesigns",
+      "User experience improvements",
+      "Responsive interface layouts",
+      "Design systems and reusable components",
+      "Wireframes and interactive prototypes"
+    ]
+  },
+  {
+    "number": "06",
+    "title": "Custom CRM & Business Dashboards",
+    "description": "Less busywork. More visibility into how your business runs.",
+    "tools": "TypeScript \u00b7 Supabase \u00b7 Role-based access",
+    "items": [
+      "Customer relationship management systems",
+      "Sales tracking dashboards",
+      "Lead and customer management",
+      "Employee and admin portals",
+      "Role-based permissions",
+      "Analytics, reporting, and performance tracking",
+      "Custom internal business tools"
+    ]
+  },
+  {
+    "number": "07",
+    "title": "Website Maintenance & Technical Support",
+    "description": "A reliable pair of hands after your website goes live.",
+    "tools": "Debugging \u00b7 Dependencies \u00b7 Ongoing support",
+    "items": [
+      "Website updates and improvements",
+      "Bug fixing and troubleshooting",
+      "Performance optimization",
+      "Security and dependency updates",
+      "Feature additions",
+      "Ongoing website maintenance",
+      "Technical issue resolution"
+    ]
+  },
+  {
+    "number": "08",
+    "title": "API & Third-Party Integrations",
+    "description": "Connect the tools you use into a system that works together.",
+    "tools": "REST APIs \u00b7 Supabase \u00b7 Automation",
+    "items": [
+      "REST API integration",
+      "Payment gateway integration",
+      "Supabase and database integration",
+      "Authentication services",
+      "Email and notification integrations",
+      "External tools and automation workflows"
+    ]
+  },
+  {
+    "number": "09",
+    "title": "Website Performance & SEO Optimization",
+    "description": "Faster pages, fewer barriers, and a stronger foundation for search.",
+    "tools": "Core Web Vitals \u00b7 Technical SEO \u00b7 Accessibility",
+    "items": [
+      "Core Web Vitals optimization",
+      "Website speed improvements",
+      "Technical SEO",
+      "Mobile responsiveness",
+      "Accessibility improvements",
+      "Image and asset optimization",
+      "Code optimization and performance auditing"
+    ]
+  },
+  {
+    "number": "10",
+    "title": "Deployment, Hosting & Domain Setup",
+    "description": "The final mile, handled with care.",
+    "tools": "Vercel \u00b7 Netlify \u00b7 Render \u00b7 CI/CD",
+    "items": [
+      "Vercel, Netlify, and Render deployment",
+      "Custom domain configuration",
+      "DNS setup and troubleshooting",
+      "SSL certificate configuration",
+      "Hosting configuration",
+      "Environment variables and production setup",
+      "CI/CD deployment workflows"
+    ]
+  }
+]

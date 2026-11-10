@@ -210,6 +210,7 @@ layout: null
 <span class="w-2 h-2 rounded-full bg-black"></span>
 </a>
 </li>
+<li><a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#services-section"><span class="truncate"># services</span><span class="services-nav-count">10</span></a></li>
 <li class="">
 <a class="flex items-center justify-between px-2 py-1 rounded border border-transparent hover:border-os-border hover:bg-os-paper" href="#projects-section">
 <span class="truncate"># projects</span>
@@ -359,6 +360,33 @@ layout: null
 </div>
 </article>
 <!-- END: Section A - About Me -->
+<article id="services-section" class="services-section" aria-labelledby="services-heading">
+<header class="services-intro" data-service-reveal>
+  <p class="services-eyebrow"><span>Independent development</span><span>SERVICES / 01–10</span></p>
+  <div class="services-heading-layout">
+    <h2 id="services-heading">What I Can<br>Build For You<span aria-hidden="true">.</span></h2>
+    <p>From a simple landing page to a complete business platform, I design, develop, and deliver digital experiences tailored to your goals.</p>
+  </div>
+  <p class="services-guide">Built around your goals. Supported beyond launch.<span>Select a service to explore <span aria-hidden="true">↓</span></span></p>
+</header>
+<div class="services-list">
+{% for service in site.data.services %}
+<details class="service-item" data-service-reveal{% if forloop.first %} open{% endif %}>
+  <summary><span class="service-number">{{ service.number }}</span><h3>{{ service.title | escape }}</h3><span class="service-toggle" aria-hidden="true"></span></summary>
+  <div class="service-body">
+    <div class="service-context"><p>{{ service.description | escape }}</p><p class="service-tools">{{ service.tools | escape }}</p></div>
+    <ul>{% for item in service.items %}<li>{{ item | escape }}</li>{% endfor %}</ul>
+  </div>
+</details>
+{% endfor %}
+</div>
+<div class="services-cta" data-service-reveal>
+  <p class="services-eyebrow">Your next project</p>
+  <h3>Have something in mind?<br>Let's build it.</h3>
+  <p>Whether you're starting from scratch or improving an existing product, I'd love to help bring your ideas to life.</p>
+  <a href="#contact-section" class="services-contact">Let's Work Together <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+</div>
+</article>
 <article class="space-y-3 pt-4 border-t-2 border-os-border/30" id="projects-section">
 <div class="flex items-center justify-between"><h2 class="font-bold text-base">Featured Projects <span id="project-count"></span></h2></div>
 <div id="project-list" class="content-grid"><p class="empty-state">Loading projects…</p></div>
@@ -407,6 +435,7 @@ layout: null
 <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
 <a href="#about-section" aria-current="page"><i class="fa-solid fa-house" aria-hidden="true"></i><span>Home</span></a>
 <a href="#projects-section"><i class="fa-regular fa-calendar" aria-hidden="true"></i><span>Projects</span></a>
+<a href="#services-section"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="14" x="3" y="7" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18M12 10v4"/></svg><span>Services</span></a>
 <a href="#contact-section"><i class="fa-regular fa-address-book" aria-hidden="true"></i><span>Contact</span></a>
 </nav>
 <!-- END: Main Window Container -->

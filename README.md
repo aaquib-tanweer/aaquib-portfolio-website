@@ -5,6 +5,7 @@ A static Jekyll portfolio with a retro desktop interface.
 ## Update the portfolio
 
 - Edit `_data/portfolio.json` for the bio, headline, skills, education, experience, expertise, and projects.
+- Edit `_data/services.json` for freelance service titles, descriptions, technologies, and included work.
 - Edit `index.html` for the display name, role, social links, and contact details.
 - Edit the `profile` object in `app.js` for contact and social actions.
 - Replace `assets/profile.png` to change the profile picture.

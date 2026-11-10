@@ -22,7 +22,8 @@ const server = createServer(async (req, res) => {
       body = await readFile(file);
       if (extname(file) === '.html') {
         const portfolio = JSON.parse(await readFile(resolve(root, '_data/portfolio.json'), 'utf8'));
-        body = await liquid.parseAndRender(body.toString().replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, ''), {site: {data: {portfolio}, time: new Date()}});
+        const services = JSON.parse(await readFile(resolve(root, '_data/services.json'), 'utf8'));
+        body = await liquid.parseAndRender(body.toString().replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, ''), {site: {data: {portfolio, services}, time: new Date()}});
       }
     }
     res.writeHead(200, {'Content-Type': types[extname(file)] || 'application/octet-stream', 'Cache-Control':'no-store'}).end(body);
