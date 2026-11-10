@@ -19,3 +19,5 @@ For the Jekyll production build, install Ruby 3.3 and run `gem install bundler -
 Run `npm test` and `python3 -m unittest discover -s tests -p "test_*.py"` to check content rendering and deployment paths.
 
 GitHub Pages deployment runs through `.github/workflows/pages.yml`.
+
+Vercel deployment uses `vercel.json` to run `npm run build:vercel` and publish `_site`. This Node.js build renders the Liquid templates with root-relative URLs and requires no Ruby installation. Run `npm run build:vercel` locally to verify the deployment output. Redeploy on Vercel after pushing these files.

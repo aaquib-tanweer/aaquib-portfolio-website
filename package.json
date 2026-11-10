@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "tailwindcss -i src/styles.css -o styles.css --minify",
+    "build:vercel": "npm run build && node scripts/build-static.mjs",
     "build:site": "npm run build && bundle exec jekyll build",
     "start": "npm run dev",
     "test": "node --test tests/*.test.mjs",

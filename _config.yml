@@ -12,6 +12,7 @@ kramdown:
   input: GFM
   hard_wrap: false
 exclude:
+  - vercel.json
   - node_modules
   - vendor
   - .bundle
