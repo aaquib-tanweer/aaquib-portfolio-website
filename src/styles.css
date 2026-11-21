@@ -44,8 +44,6 @@ main.zoomed { max-width: calc(100vw - 48px); margin-top: 0 !important; }
 .content-card p { font-size: 13px; line-height: 1.7; margin: 10px 0; }
 .content-card small { display: block; margin: 12px 0; font-size: 11px; }
 .empty-state { text-align: center; border: 2px dashed #aaa69b; border-radius: 10px; padding: 30px 16px; background: #f6f3e7; font-size: 13px; }
-.empty-state h3 { font-weight: bold; margin: 10px 0; }
-.empty-state > span { font-size: 28px; }
 .editor-button { display: inline-block; padding: 8px 12px; border: 2px solid #121212; border-radius: 6px; box-shadow: 2px 2px #121212; background: #f6f3e7; font-family: monospace; font-weight: bold; font-size: 12px; text-decoration: none; cursor: pointer; }
 .editor-button:hover { background: #ece8d9; }
 dialog { max-width: min(450px, 90vw); padding: 24px; border: 3px solid; border-radius: 12px; background: #fffdf5; box-shadow: 5px 5px #121212; }
@@ -60,7 +58,6 @@ dialog p { margin: 16px 0; }
 .finder-path { padding: 9px 18px; border-bottom: 1px solid; background: #ece8d9; font: 11px 'Space Mono', monospace; }
 .finder-content { padding: 24px; }
 .finder-port { display: flex; align-items: center; gap: 9px; font: 700 11px 'Space Mono', monospace; }
-.finder-port img { width: 32px; height: 32px; image-rendering: auto; }
 .finder-port .finder-dot { margin-left: auto; }
 .finder-dot { display: inline-block; width: 8px; height: 8px; border: 1px solid #121212; border-radius: 50%; background: #7bb662; }
 .finder-city-art { overflow: hidden; margin: 18px 0 24px; border: 2px solid; border-radius: 8px; background: #f6f3e7; box-shadow: 3px 3px #121212; }

@@ -1,5 +1,5 @@
 module.exports = {
- content: ['./index.html', './app.js', './admin.html', './admin.js', './content.js'],
+ content: ['./index.html', './app.js', './content.js'],
  theme: {extend: {
  colors: {'os-green':'#7BB662','os-green-dark':'#659C4E','os-paper':'#FFFDF5','os-sidebar':'#F6F3E7','os-panel':'#ECE8D9','os-border':'#121212'},
  fontFamily: {sans:['"Space Grotesk"','sans-serif'],mono:['"Space Mono"','monospace']},
